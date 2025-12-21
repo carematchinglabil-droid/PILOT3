@@ -36,19 +36,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initializeApp() {
+  console.log('🚀 App starting...');
+  
+  // Load saved data first
+  loadStateFromStorage();
+  
   // Show loading screen
   const loadingScreen = document.getElementById('loadingScreen');
   
   setTimeout(() => {
+    console.log('⏰ Hiding loading screen...');
     if (loadingScreen) {
       loadingScreen.classList.add('hidden');
+      console.log('✅ Loading screen hidden');
     }
-    // Ensure landing page is visible
+    // Always show landing page on load (override saved state)
+    console.log('📄 Showing landing page...');
     showView('landing');
-  }, 1500);
-
-  // Load saved data
-  loadStateFromStorage();
+    console.log('✅ Landing page shown');
+  }, 100); // Changed from 1500 to 100ms
   
   // Initialize all components
   initializeNavigation();
@@ -143,9 +149,15 @@ function initializeNavigation() {
 }
 
 function showView(viewId) {
+  console.log(`👁️ Showing view: ${viewId}`);
   const views = document.querySelectorAll('.view');
+  console.log(`📋 Found ${views.length} views`);
   views.forEach(view => {
-    view.classList.toggle('active', view.id === viewId);
+    const isActive = view.id === viewId;
+    view.classList.toggle('active', isActive);
+    if (isActive) {
+      console.log(`✅ Activated view: ${view.id}`);
+    }
   });
   
   AppState.currentView = viewId;
