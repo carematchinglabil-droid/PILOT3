@@ -43,6 +43,8 @@ function initializeApp() {
     if (loadingScreen) {
       loadingScreen.classList.add('hidden');
     }
+    // Ensure landing page is visible
+    showView('landing');
   }, 1500);
 
   // Load saved data
