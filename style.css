@@ -440,6 +440,7 @@ body {
   transition: all var(--transition-base);
   box-shadow: var(--shadow-md);
   min-height: 90px;
+  text-decoration: none;
 }
 
 .cta-primary {
