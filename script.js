@@ -36,25 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initializeApp() {
-  console.log('🚀 App starting...');
+  console.log('🚀 FlowMatch App Starting...');
   
-  // Load saved data first
+  // Always show landing page on load
+  showView('landing');
+  console.log('✅ Landing page displayed');
+  
+  // Load saved data (but don't let it override the view)
   loadStateFromStorage();
-  
-  // Show loading screen
-  const loadingScreen = document.getElementById('loadingScreen');
-  
-  setTimeout(() => {
-    console.log('⏰ Hiding loading screen...');
-    if (loadingScreen) {
-      loadingScreen.classList.add('hidden');
-      console.log('✅ Loading screen hidden');
-    }
-    // Always show landing page on load (override saved state)
-    console.log('📄 Showing landing page...');
-    showView('landing');
-    console.log('✅ Landing page shown');
-  }, 100); // Changed from 1500 to 100ms
   
   // Initialize all components
   initializeNavigation();
