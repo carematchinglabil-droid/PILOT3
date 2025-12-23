@@ -575,7 +575,7 @@
           </div>
           
           <div class="form-group">
-            <label><span class="required">*</span> סוג טיפול (בחר/י מספר)</label>
+            <label><span class="required">*</span> מיקום הטיפול (בחר/י מספר)</label>
             <div class="checkbox-chips">
               <div class="checkbox-chip">
                 <input type="checkbox" id="type1" value="🏢 קליניקה (מיקום קבוע)">
@@ -930,7 +930,7 @@
       // Check at least one checkbox in required groups
       const treatmentTypes = document.querySelectorAll('[id^="type"]:checked');
       if (treatmentTypes.length === 0) {
-        showToast('אנא בחר/י לפחות סוג טיפול אחד');
+        showToast('אנא בחר/י לפחות מיקום טיפול אחד');
         return;
       }
       
